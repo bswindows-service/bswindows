@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO үшін маңызды Title және Description тегтері -->
-    <title>BSWINDOWS (Бсвиндовс) — Настройка компьютеров и ноутбуков</title>
-    <meta name="description" content="BSWINDOWS (Бсвиндовс) — Профессиональная настройка ноутбуков и ПК. Установка Windows, чистка, оптимизация, установка программ и драйверов.">
-    <meta name="keywords" content="бсвиндовс, bswindows, настройка ноутбуков и ПК, ремонт компьютеров, установка windows, чистка ноутбука, настройка пк">
-    
-    <!-- Google Search Console растау тегі (бұрынғыңыз болса соны қалдырыңыз) -->
+    <title>BSWINDOWS (Бсвиндовс) — Ноутбук пен компьютерді баптау Астанада</title>
+    <meta name="description" content="BSWINDOWS — Профессиональная настройка ноутбуков и ПК в Астане. Установка Windows 10/11, чистка от пыли, замена термопасты, FPS boost в играх и установка ПО.">
+    <meta name="keywords" content="бсвиндовс, bswindows, настройка ноутбуков, ремонт компьютеров, установка windows, чистка ноутбука, астана компьютер ремонт">
     <meta name="google-site-verification" content="vnCxQvLlexil-xVrRxicMg" />
-
     <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,115 +23,178 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
         }
-        .card {
-            background: #1e293b;
-            border-radius: 16px;
-            padding: 40px 30px;
-            max-width: 500px;
+        .container {
+            max-width: 700px;
             width: 100%;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        header {
             text-align: center;
-            border: 1px solid #334155;
+            padding: 30px 20px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
         }
         .logo {
-            width: 120px;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 12px;
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent);
         }
         h1 {
-            font-size: 1.8rem;
-            color: #38bdf8;
-            margin-bottom: 12px;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 8px;
         }
         h2 {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-muted);
             font-weight: 400;
+            margin-bottom: 15px;
         }
-        p {
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 25px;
+        .section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        .section h3 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-muted);
             font-size: 0.95rem;
         }
-        .services {
-            text-align: left;
-            background: #0f172a;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-        }
-        .services h3 {
-            color: #38bdf8;
-            font-size: 1.05rem;
-            margin-bottom: 10px;
-        }
-        .services ul {
-            list-style-type: none;
-        }
-        .services li {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-        .services li::before {
+        li::before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #38bdf8;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .price-item span:last-child {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
         .btn {
             display: inline-block;
-            background: #2563eb;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.3s;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+            transition: transform 0.2s, opacity 0.2s;
+            width: 100%;
+            text-align: center;
         }
-        .btn:hover {
-            background: #1d4ed8;
+        .btn:active {
+            transform: scale(0.98);
+        }
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+            padding-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <!-- Логотип -->
-        <img src="logo.png" alt="BSWINDOWS Бсвиндовс Логотип" class="logo">
+    <div class="container">
+        <!-- Басты бөлім -->
+        <header>
+            <img src="logo.png" alt="BSWINDOWS Логотип" class="logo">
+            <h1>BSWINDOWS</h1>
+            <h2>Ноутбук пен компьютерді баптау / Настройка ПК и ноутбуков</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Құрылғыңыздың жұмысын жылдамдатып, қалауыңызға сай ретке келтіреміз. Сапаға кепілдік беріледі!</p>
+        </header>
 
-        <!-- Басты h1 тақырыбы (SEO үшін басты сөздер) -->
-        <h1>BSWINDOWS (Бсвиндовс)</h1>
-        <h2>Настройка ноутбуков и ПК / Компьютерлік қызметтер</h2>
-
-        <p>Быстрая и качественная настройка компьютеров, ноутбуков и операционных систем Windows. Оптимизация системы для игр и работы.</p>
-
-        <!-- Қызметтер тізімі (SEO кілт сөздері) -->
-        <div class="services">
-            <h3>Услуги / Қызметтер:</h3>
+        <!-- Негізгі қызметтер -->
+        <div class="section">
+            <h3>🚀 Негізгі қызметтер / Услуги</h3>
             <ul>
-                <li>Установка и настройка Windows (7, 10, 11)</li>
-                <li>Оптимизация ПК и ноутбуков для игр (CS2, FPS booster)</li>
-                <li>Установка драйверов и необходимых программ</li>
-                <li>Чистка от пыли и замена термопасты</li>
-                <li>Устранение ошибок и зависаний</li>
+                <li><strong>Windows орнату:</strong> Windows 10 / 11 (драйверлермен және қажетті бағдарламалармен толық).</li>
+                <li><strong>Ойындарды оңтайландыру (FPS Boost):</strong> CS2, Dota 2 және басқа ойындарда қатуды жою, кадр жиілігін арттыру.</li>
+                <li><strong>Профилактикалық тазалау:</strong> Шаңнан тазарту және сапалы термопастаны ауыстыру.</li>
+                <li><strong>Бағдарламалар жиынтығы:</strong> Microsoft Office (Word, Excel), антивирус, браузерлер.</li>
+                <li><strong>Қателерді жөндеу:</strong> Жүйенің баяулауын, қатқанын және көк экран (BSOD) мәселелерін жою.</li>
             </ul>
         </div>
 
-        <a href="https://wa.me/" class="btn">Заказать настройку / Тапсырыс беру</a>
+        <!-- Неге бізді таңдайды -->
+        <div class="section">
+            <h3>⭐ Неге бізді таңдайды? / Почему выбирают нас</h3>
+            <ul>
+                <li>Жылдам әрі ұқыпты жұмыс.</li>
+                <li>Қолжетімді баға және адал кеңес.</li>
+                <li>Әрбір жұмысқа жауапкершілікпен қарау.</li>
+            </ul>
+        </div>
+
+        <!-- Бағалар бөлімі -->
+        <div class="section">
+            <h3>💰 Қызмет құны / Цены</h3>
+            <div class="price-item">
+                <span>Windows орнату + драйверлер</span>
+                <span>Келісімді</span>
+            </div>
+            <div class="price-item">
+                <span>Толық тазалау + термопаста ауыстыру</span>
+                <span>Келісімді</span>
+            </div>
+            <div class="price-item">
+                <span>Ойындарды баптау және оңтайландыру</span>
+                <span>Келісімді</span>
+            </div>
+        </div>
+
+        <!-- Дұрыс WhatsApp сілтемесі -->
+        <div class="btn-container">
+            <a href="https://wa.me/77073376461" class="btn">💬 WhatsApp-қа жазу / Заказать настройку</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 BSWINDOWS. Барлық құқықтар қорғалған.</p>
+        </footer>
     </div>
 
 </body>
