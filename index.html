@@ -1,201 +1,436 @@
 <!DOCTYPE html>
-<html lang="kk">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSWINDOWS (Бсвиндовс) — Ноутбук пен компьютерді баптау Астанада</title>
-    <meta name="description" content="BSWINDOWS — Профессиональная настройка ноутбуков и ПК в Астане. Установка Windows 10/11, чистка от пыли, замена термопасты, FPS boost в играх и установка ПО.">
-    <meta name="keywords" content="бсвиндовс, bswindows, настройка ноутбуков, ремонт компьютеров, установка windows, чистка ноутбука, астана компьютер ремонт">
+    <title>BSWINDOWS // Professional PC & Laptop Service Astana</title>
+    <meta name="description" content="Профессиональная настройка, чистка и тотальная оптимизация ПК и ноутбуков в Астане. Установка Windows, FPS Boost, замена термопасты.">
     <meta name="google-site-verification" content="vnCxQvLlexil-xVrRxicMg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
+            --bg-color: #030712;
+            --card-bg: rgba(15, 23, 42, 0.85);
+            --border-color: rgba(56, 189, 248, 0.2);
+            --accent-cyan: #38bdf8;
+            --accent-purple: #a855f7;
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
+            --text-dim: #94a3b8;
+            --wa-green: #22c55e;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
+
         body {
             background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
             color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
+            min-height: 100vh;
+            padding: 25px 15px;
             display: flex;
             justify-content: center;
         }
+
         .container {
-            max-width: 700px;
+            max-width: 750px;
             width: 100%;
         }
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            margin-bottom: 20px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
-        }
-        .logo {
-            width: 110px;
-            height: 110px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            border: 3px solid var(--accent);
-        }
-        h1 {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-        h2 {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-        .section {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border);
-        }
-        .section h3 {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 8px;
-        }
-        ul {
-            list-style: none;
-        }
-        li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 25px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-        .price-item {
+
+        /* STATUS BADGE */
+        .status-bar {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px dashed var(--border);
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            backdrop-filter: blur(10px);
         }
-        .price-item span:last-child {
-            color: var(--accent);
-            font-weight: 600;
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--wa-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--wa-green);
+            animation: pulse 1.5s infinite;
         }
-        .btn-container {
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* HEADER */
+        header {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 45px 20px;
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #2563eb, #38bdf8);
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+        }
+
+        .logo {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--accent-purple);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .desc {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* SECTION BOX */
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .service-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
+        }
+
+        .service-card i {
+            font-size: 1.6rem;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* SELECTOR LIST */
+        .select-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px 20px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .select-item:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .select-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 600;
+            font-size: 0.98rem;
+        }
+
+        .select-checkbox {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-cyan);
+            cursor: pointer;
+        }
+
+        .select-badge {
+            color: var(--wa-green);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* BUTTONS */
+        .cta-box {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
             color: #ffffff;
             text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 12px;
+            padding: 18px 25px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+            transition: 0.3s;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(34, 197, 94, 0.6);
+        }
+
+        .btn-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 16px;
             font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
-            transition: transform 0.2s, opacity 0.2s;
-            width: 100%;
-            text-align: center;
+            font-size: 1rem;
+            transition: 0.3s;
         }
-        .btn:active {
-            transform: scale(0.98);
+
+        .btn-call:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
         }
+
         footer {
             text-align: center;
-            color: var(--text-muted);
+            color: var(--text-dim);
             font-size: 0.85rem;
-            margin-top: 40px;
-            padding-bottom: 20px;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.1rem; }
+            .section { padding: 20px 16px; }
+            .select-item { flex-direction: column; align-items: flex-start; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Басты бөлім -->
+        <!-- SYSTEM BAR -->
+        <div class="status-bar">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="live-dot"></div>
+                <span>ONLINE SERVICE // ASTANA</span>
+            </div>
+            <span>BSWINDOWS</span>
+        </div>
+
+        <!-- HEADER -->
         <header>
-            <img src="logo.png" alt="BSWINDOWS Логотип" class="logo">
+            <img src="logo.png" alt="BSWINDOWS Logo" class="logo">
             <h1>BSWINDOWS</h1>
-            <h2>Ноутбук пен компьютерді баптау / Настройка ПК и ноутбуков</h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Құрылғыңыздың жұмысын жылдамдатып, қалауыңызға сай ретке келтіреміз. Сапаға кепілдік беріледі!</p>
+            <div class="subtitle">Профессиональный сервис ПК и ноутбуков</div>
+            <p class="desc">Тотальный апгрейд производительности, чистка от пыли, разгон железа и FPS Boost в киберспортивных играх с гарантией качества.</p>
         </header>
 
-        <!-- Негізгі қызметтер -->
+        <!-- SERVICES -->
         <div class="section">
-            <h3>🚀 Негізгі қызметтер / Услуги</h3>
-            <ul>
-                <li><strong>Windows орнату:</strong> Windows 10 / 11 (драйверлермен және қажетті бағдарламалармен толық).</li>
-                <li><strong>Ойындарды оңтайландыру (FPS Boost):</strong> CS2, Dota 2 және басқа ойындарда қатуды жою, кадр жиілігін арттыру.</li>
-                <li><strong>Профилактикалық тазалау:</strong> Шаңнан тазарту және сапалы термопастаны ауыстыру.</li>
-                <li><strong>Бағдарламалар жиынтығы:</strong> Microsoft Office (Word, Excel), антивирус, браузерлер.</li>
-                <li><strong>Қателерді жөндеу:</strong> Жүйенің баяулауын, қатқанын және көк экран (BSOD) мәселелерін жою.</li>
-            </ul>
-        </div>
-
-        <!-- Неге бізді таңдайды -->
-        <div class="section">
-            <h3>⭐ Неге бізді таңдайды? / Почему выбирают нас</h3>
-            <ul>
-                <li>Жылдам әрі ұқыпты жұмыс.</li>
-                <li>Қолжетімді баға және адал кеңес.</li>
-                <li>Әрбір жұмысқа жауапкершілікпен қарау.</li>
-            </ul>
-        </div>
-
-        <!-- Бағалар бөлімі -->
-        <div class="section">
-            <h3>💰 Қызмет құны / Цены</h3>
-            <div class="price-item">
-                <span>Windows орнату + драйверлер</span>
-                <span>Келісімді</span>
-            </div>
-            <div class="price-item">
-                <span>Толық тазалау + термопаста ауыстыру</span>
-                <span>Келісімді</span>
-            </div>
-            <div class="price-item">
-                <span>Ойындарды баптау және оңтайландыру</span>
-                <span>Келісімді</span>
+            <div class="section-title"><i class="fa-solid fa-microchip"></i> Основные услуги</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fa-brands fa-windows"></i>
+                    <h3>Установка Windows 10/11</h3>
+                    <p>Чистая ОС без лишнего мусора, установка всех драйверов и стабильная кастомизация.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3>FPS Boost & Оптимизация</h3>
+                    <p>Настройка под CS2, Dota 2, Valorant. Убираем микрофризы и снижаем пинг/задержку.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-fan"></i>
+                    <h3>Чистка и Термопаста</h3>
+                    <p>Глубокая чистка от пыли и замена термопасты топового класса для защиты от перегрева.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fa-solid fa-box-open"></i>
+                    <h3>Софт и Программы</h3>
+                    <p>Установка Microsoft Office (Word, Excel), антивирусов и необходимого рабочего ПО.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Дұрыс WhatsApp сілтемесі -->
-        <div class="btn-container">
-            <a href="https://wa.me/77073376461" class="btn">💬 WhatsApp-қа жазу / Заказать настройку</a>
+        <!-- INTERACTIVE ORDER SELECTOR -->
+        <div class="section">
+            <div class="section-title"><i class="fa-solid fa-check-to-slot"></i> Выберите нужные задачи:</div>
+
+            <div class="select-item" onclick="toggleOption(this)">
+                <div class="select-left">
+                    <input type="checkbox" class="select-checkbox" value="Установка Windows 10/11 + Драйверы">
+                    <span>Установка Windows 10/11 + Драйверы</span>
+                </div>
+                <span class="select-badge">Таңдау</span>
+            </div>
+
+            <div class="select-item" onclick="toggleOption(this)">
+                <div class="select-left">
+                    <input type="checkbox" class="select-checkbox" value="Чистка от пыли + Замена термопасты">
+                    <span>Чистка от пыли + Замена термопасты</span>
+                </div>
+                <span class="select-badge">Таңдау</span>
+            </div>
+
+            <div class="select-item" onclick="toggleOption(this)">
+                <div class="select-left">
+                    <input type="checkbox" class="select-checkbox" value="FPS Boost / Оптимизация под игры">
+                    <span>FPS Boost / Оптимизация под игры (CS2 и др.)</span>
+                </div>
+                <span class="select-badge">Таңдау</span>
+            </div>
+
+            <div class="select-item" onclick="toggleOption(this)">
+                <div class="select-left">
+                    <input type="checkbox" class="select-checkbox" value="Установка MS Office и ПО">
+                    <span>Установка MS Office и нужного ПО</span>
+                </div>
+                <span class="select-badge">Таңдау</span>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="cta-box">
+                <button onclick="sendWhatsAppOrder()" class="btn-wa">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i>
+                    Заказать в WhatsApp / Тапсырыс беру
+                </button>
+
+                <a href="tel:+77073376461" class="btn-call">
+                    <i class="fa-solid fa-phone"></i>
+                    Позвонить: +7 (707) 337-64-61
+                </a>
+            </div>
         </div>
 
         <footer>
-            <p>&copy; 2026 BSWINDOWS. Барлық құқықтар қорғалған.</p>
+            <p>&copy; 2026 BSWINDOWS. Все права защищены. г. Астана</p>
         </footer>
     </div>
 
+    <script>
+        function toggleOption(element) {
+            const cb = element.querySelector('.select-checkbox');
+            if (event.target !== cb) {
+                cb.checked = !cb.checked;
+            }
+        }
+
+        function sendWhatsAppOrder() {
+            const checkboxes = document.querySelectorAll('.select-checkbox:checked');
+            let selected = [];
+            checkboxes.forEach(cb => selected.push(cb.value));
+
+            let text = "Саламатсыз ба! BSWINDOWS сайты арқылы хабарласып тұрмын.\n";
+            if (selected.length > 0) {
+                text += "Қажетті қызметтер:\n- " + selected.join("\n- ");
+            } else {
+                text += "Компьютер немесе ноутбук баптау бойынша кеңес алу қажет еді.";
+            }
+
+            const url = "https://wa.me/77073376461?text=" + encodeURIComponent(text);
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
